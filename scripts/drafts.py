@@ -44,6 +44,7 @@ import json
 import time
 import email.utils
 import imaplib
+import html
 from email.message import EmailMessage
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -176,6 +177,25 @@ def build_message(to_addr, subject, body, from_addr, reply_to=None, cc=None,
     for key, value in (headers or {}).items():
         msg[key] = value
     msg.set_content(body or "", subtype="plain", charset="utf-8")
+    
+    paragraphs = [p.strip() for p in (body or "").split("\n\n") if p.strip()]
+    html_paragraphs = []
+    for p in paragraphs:
+        escaped = html.escape(p).replace("\n", "<br>\n")
+        html_paragraphs.append("<p>%s</p>" % escaped)
+    html_body = "\n".join(html_paragraphs)
+    html_content = (
+        '<!DOCTYPE html>\n'
+        '<html lang="ru">\n'
+        '<head>\n'
+        '  <meta charset="utf-8">\n'
+        '</head>\n'
+        '<body style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; color: #222222;">\n'
+        '%s\n'
+        '</body>\n'
+        '</html>' % html_body
+    )
+    msg.add_alternative(html_content, subtype="html")
     return msg
 
 

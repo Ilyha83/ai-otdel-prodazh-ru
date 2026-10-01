@@ -391,9 +391,9 @@ def _pains_from_metrics(metrics, company):
 def _subject(company, pains):
     """Тема письма. Коротко, иначе в списке писем она обрежется."""
     name = short_name(company.get("name")) or ""
-    subject = "Перевозки для %s" % name if name else "Вопрос по перевозкам"
+    subject = "Платформа «СтройИнтел» для %s" % name if name else "Платформа «СтройИнтел» (реестр Минцифры № 35354)"
     if len(subject) > 60:
-        subject = "Вопрос по перевозкам"
+        subject = "Платформа «СтройИнтел» (реестр Минцифры)"
     return subject
 
 

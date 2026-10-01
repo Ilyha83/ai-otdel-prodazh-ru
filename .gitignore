@@ -1,23 +1,30 @@
-# Конфиг с доступами к почте
+# Конфиг с доступами к почте (секреты)
 config.json
 
-# Готовые отчёты.
-# Игнорируем содержимое, а не саму папку: git не умеет возвращать файл
-# обратно, если исключена вся директория целиком.
+# Готовые отчёты
 out/*
 !out/.gitkeep
 
-# Базы конвейера
+# Базы данных конвейера
 *.db
 *.db-journal
 *.sqlite
 *.sqlite3
 
-# Выгрузки из реестров
+# Выгрузки и данные
 *.xlsx
 *.xls
 data/*
 !data/.gitkeep
+
+# Временные текстовые отчеты, дампы и логи
+*.txt
+*.jsonl
+*.csv
+*.log
+dirs_out.txt
+survivors_top10.txt
+top_candidates.txt
 
 # Python
 __pycache__/
@@ -27,20 +34,56 @@ __pycache__/
 venv/
 env/
 
-# Служебное
+# IDE и служебные файлы
 .DS_Store
-*.log
 .idea/
 .vscode/
 
-# Мусор синхронизации (Syncthing, Dropbox, iCloud).
-# Без этих правил временные и конфликтные копии уезжают в репозиторий
-# и человек, который его скачает, видит дубликаты файлов вместо чистого пака.
+# Мусор синхронизации
 .syncthing.*
 *.tmp
 *sync-conflict*
 
-# Служебное состояние инструментов разработки, к продукту отношения не имеет
+# Служебное состояние инструментов
 .bkit/
 .planning/
 .agent/
+scratch/
+
+# Локальные служебные скрипты разовой отладки (не для публичного репо)
+scripts/check_*.py
+scripts/test_*.py
+scripts/inspect_*.py
+scripts/extract_*.py
+scripts/clean_*.py
+scripts/dump_*.py
+scripts/list_*.py
+scripts/print_*.py
+scripts/step*.json
+scripts/*.txt
+scripts/delete_*.py
+scripts/purge_*.py
+scripts/apply_*.py
+scripts/upload_*.py
+scripts/save_*.py
+scripts/trace_*.py
+scripts/grep_*.py
+scripts/find_*.py
+scripts/populate_*.py
+scripts/select_*.py
+scripts/classify_*.py
+scripts/detailed_*.py
+scripts/exclude_*.py
+scripts/generate_*.py
+scripts/get_*.py
+scripts/enrich_directors.py
+scripts/write_directors_summary.py
+scripts/audit_all_emails.py
+scripts/export_letters.py
+scripts/prepare_leads.py
+scripts/search_trans.py
+delete_drafts.py
+save_10_letters.py
+populate_enrichment.py
+run_otsev.py
+summary.py

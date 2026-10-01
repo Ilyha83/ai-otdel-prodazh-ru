@@ -62,7 +62,7 @@
 ## Установка в три команды
 
 ```bash
-git clone https://github.com/Comandosai/ai-otdel-prodazh-ru.git
+git clone https://github.com/Ilyha83/ai-otdel-prodazh-ru.git
 cd ai-otdel-prodazh-ru
 bash install.sh
 ```
