@@ -77,6 +77,7 @@ scripts/exclude_*.py
 scripts/generate_*.py
 scripts/get_*.py
 scripts/enrich_directors.py
+scripts/enrich_rmsp_directors.py
 scripts/write_directors_summary.py
 scripts/audit_all_emails.py
 scripts/export_letters.py
